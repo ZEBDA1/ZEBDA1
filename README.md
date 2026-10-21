@@ -25,12 +25,15 @@ const zebda = {
   building: "High-performance client-side web tools & extensions",
   method: ["ideate", "architect", "ship with speed", "polish every pixel"],
   philosophy: "Zero bloat. Privacy by default. Fluid user experience.",
-  flagship: "PDF Nexus — All-in-one 100% offline PDF power-suite",
+  flagship: [
+    "PDF Nexus — All-in-one 100% offline PDF power-suite",
+    "Revizz — AI-powered revision & spaced repetition platform"
+  ],
 };
 ```
 
 Je conçois des applications web modernes, fluides et axées sur la performance et le respect strict de la vie privée.  
-Mon projet phare actuel est **PDF Nexus**, une suite PDF complète fonctionnant à 100% dans le navigateur sans aucun serveur externe.
+Mes projets phares actuels sont **PDF Nexus** (suite PDF 100% locale dans le navigateur) et **Revizz** (plateforme intelligente de révision assistée par IA avec citations sources certifiées).
 
 ---
 
@@ -39,6 +42,7 @@ Mon projet phare actuel est **PDF Nexus**, une suite PDF complète fonctionnant 
 | # | Projet | Description | Technologies | Statut / Lien |
 |---|--------|-------------|--------------|---------------|
 | ① | **PDF Nexus** | Extension Chromium tout-en-un & lecteur PDF : édition in-situ, signatures, fusion, conversion multi-formats (Word/Excel), OCR hors-ligne & assistant IA. | React 19 · TypeScript · Vite · PDF.js · pdf-lib · Tesseract.js · Web Workers | [⭐ GitHub](https://github.com/ZEBDA1/pdf-nexus) · [🌐 Chrome Web Store](https://chromewebstore.google.com/detail/dkpcbfafcmhacekpknhklbdkioaoamde) |
+| ② | **Revizz** | Plateforme intelligente de révision : scan OCR de cours manuscrits/PDF, flashcards actives, fiches de synthèse, QCM interactifs et IA Cloudflare sourcée sans hallucination. | Next.js · TypeScript · Cloudflare Workers AI · Llama 3.3 · Tesseract.js · Tailwind | [⭐ GitHub](https://github.com/ZEBDA1/revizz) |
 
 ---
 
@@ -63,6 +67,8 @@ Mon projet phare actuel est **PDF Nexus**, une suite PDF complète fonctionnant 
 **BACKEND, OUTILS & TESTS**
 
 ![Node.js](https://img.shields.io/badge/Node.js-0a0908?style=for-the-badge&logo=nodedotjs&logoColor=5FA04E)
+![Next.js](https://img.shields.io/badge/Next.js-0a0908?style=for-the-badge&logo=nextdotjs&logoColor=ffffff)
+![Cloudflare](https://img.shields.io/badge/Cloudflare_Workers_AI-0a0908?style=for-the-badge&logo=cloudflare&logoColor=F38020)
 ![Vitest](https://img.shields.io/badge/Vitest-0a0908?style=for-the-badge&logo=vitest&logoColor=FCC72B)
 ![Playwright](https://img.shields.io/badge/Playwright-0a0908?style=for-the-badge&logo=playwright&logoColor=2EAD33)
 ![Git](https://img.shields.io/badge/Git-0a0908?style=for-the-badge&logo=git&logoColor=F05032)
