@@ -2,7 +2,7 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:8b5cf6,50:6366f1,100:0a0908&text=ZEBDA&fontSize=68&fontColor=ffffff&fontAlignY=36&desc=Full-Stack%20Developer%20%26amp;%20Software%20Creator%20%E2%80%94%20France&descSize=19&descAlignY=58&animation=fadeIn" alt="ZEBDA banner" width="100%" />
 
-<img src="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&amp;weight=500&amp;size=22&amp;duration=3500&amp;pause=800&amp;color=A78BFA&amp;center=true&amp;vCenter=true&amp;width=650&amp;lines=Building+high-performance%2C+privacy-first+software;Creator+of+PDF+Nexus+%E2%80%94+100%25+Client-Side;Modern+Web+%C2%B7+Strict+TypeScript+%C2%B7+React+19;Shipping+from+France" alt="ZEBDA dynamic tagline" />
+<img src="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&amp;weight=500&amp;size=22&amp;duration=3500&amp;pause=800&amp;color=A78BFA&amp;center=true&amp;vCenter=true&amp;width=650&amp;lines=Building+high-performance%2C+privacy-first+software;Creator+of+PDF+Nexus+%E2%80%94+100%25+Client-Side;ImmoAlert+%E2%80%94+Real+estate+alerts+on+Telegram;Modern+Web+%C2%B7+Strict+TypeScript+%C2%B7+React+19;Shipping+from+France" alt="ZEBDA dynamic tagline" />
 
 <br />
 
@@ -26,6 +26,7 @@ const zebda = {
   method: ["ideate", "architect", "ship with speed", "polish every pixel"],
   philosophy: "Zero bloat. Privacy by default. Fluid user experience.",
   flagship: [
+    "ImmoAlert — Self-hosted real-estate radar & Telegram alerts",
     "PDF Nexus — All-in-one 100% offline PDF power-suite",
     "Revizz — AI-powered revision & spaced repetition platform"
   ],
@@ -33,7 +34,7 @@ const zebda = {
 ```
 
 Je conçois des applications web modernes, fluides et axées sur la performance et le respect strict de la vie privée.  
-Mes projets phares actuels sont **PDF Nexus** (suite PDF 100% locale dans le navigateur) et **Revizz** (plateforme intelligente de révision assistée par IA avec citations sources certifiées).
+Mes projets phares actuels sont **ImmoAlert** (radar immobilier auto-hébergé sur Telegram, avec 8 connecteurs et alertes personnalisées), **PDF Nexus** (suite PDF 100% locale dans le navigateur) et **Revizz** (plateforme intelligente de révision assistée par IA avec citations sources certifiées).
 
 ---
 
@@ -41,8 +42,15 @@ Mes projets phares actuels sont **PDF Nexus** (suite PDF 100% locale dans le nav
 
 | # | Projet | Description | Technologies | Statut / Lien |
 |---|--------|-------------|--------------|---------------|
-| ① | **PDF Nexus** | Extension Chromium tout-en-un & lecteur PDF : édition in-situ, signatures, fusion, conversion multi-formats (Word/Excel), OCR hors-ligne & assistant IA. | React 19 · TypeScript · Vite · PDF.js · pdf-lib · Tesseract.js · Web Workers | [⭐ GitHub](https://github.com/ZEBDA1/pdf-nexus) · [🌐 Chrome Web Store](https://chromewebstore.google.com/detail/dkpcbfafcmhacekpknhklbdkioaoamde) |
-| ② | **Revizz** | Plateforme intelligente de révision : scan OCR de cours manuscrits/PDF, flashcards actives, fiches de synthèse, QCM interactifs et IA Cloudflare sourcée sans hallucination. | Next.js · TypeScript · Cloudflare Workers AI · Llama 3.3 · Tesseract.js · Tailwind | [⭐ GitHub](https://github.com/ZEBDA1/revizz) |
+| ① | **ImmoAlert** | Radar immobilier auto-hébergé sur Telegram : 8 connecteurs, filtres personnels, favoris et alertes persistantes. | Python · aiogram 3 · SQLAlchemy · Firecrawl · Docker | [⭐ GitHub](https://github.com/ZEBDA1/ImmoAlert) · [📖 Documentation](https://github.com/ZEBDA1/ImmoAlert#readme) |
+| ② | **PDF Nexus** | Extension Chromium tout-en-un & lecteur PDF : édition in-situ, signatures, fusion, conversion multi-formats (Word/Excel), OCR hors-ligne & assistant IA. | React 19 · TypeScript · Vite · PDF.js · pdf-lib · Tesseract.js · Web Workers | [⭐ GitHub](https://github.com/ZEBDA1/pdf-nexus) · [🌐 Chrome Web Store](https://chromewebstore.google.com/detail/dkpcbfafcmhacekpknhklbdkioaoamde) |
+| ③ | **Revizz** | Plateforme intelligente de révision : scan OCR de cours manuscrits/PDF, flashcards actives, fiches de synthèse, QCM interactifs et IA Cloudflare sourcée sans hallucination. | Next.js · TypeScript · Cloudflare Workers AI · Llama 3.3 · Tesseract.js · Tailwind | [⭐ GitHub](https://github.com/ZEBDA1/revizz) |
+
+<div align="center">
+
+<a href="https://github.com/ZEBDA1/ImmoAlert"><img src="https://raw.githubusercontent.com/ZEBDA1/ImmoAlert/main/docs/assets/banner.svg" alt="ImmoAlert — Votre radar immobilier sur Telegram" width="100%" /></a>
+
+</div>
 
 ---
 
@@ -66,6 +74,9 @@ Mes projets phares actuels sont **PDF Nexus** (suite PDF 100% locale dans le nav
 
 **BACKEND, OUTILS & TESTS**
 
+![Python](https://img.shields.io/badge/Python-0a0908?style=for-the-badge&logo=python&logoColor=3776AB)
+![Telegram](https://img.shields.io/badge/Telegram_Bots-0a0908?style=for-the-badge&logo=telegram&logoColor=26A5E4)
+![Docker](https://img.shields.io/badge/Docker-0a0908?style=for-the-badge&logo=docker&logoColor=2496ED)
 ![Node.js](https://img.shields.io/badge/Node.js-0a0908?style=for-the-badge&logo=nodedotjs&logoColor=5FA04E)
 ![Next.js](https://img.shields.io/badge/Next.js-0a0908?style=for-the-badge&logo=nextdotjs&logoColor=ffffff)
 ![Cloudflare](https://img.shields.io/badge/Cloudflare_Workers_AI-0a0908?style=for-the-badge&logo=cloudflare&logoColor=F38020)
