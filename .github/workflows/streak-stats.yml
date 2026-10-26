@@ -1,0 +1,61 @@
+name: Update cached streak card
+
+on:
+  schedule:
+    - cron: "15 3 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/streak-stats.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-streak-card
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out profile
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Generate the card from GitHub
+        uses: DenverCoder1/github-readme-streak-stats@adbd07609bb771d3510a15ee2f3b31d5fbe5201d # v1
+        with:
+          path: assets/github-streak.svg
+          options: user=${{ github.repository_owner }}&hide_border=true&background=0a0908&ring=8b5cf6&fire=a78bfa&currStreakNum=ffffff&sideNums=ffffff&currStreakLabel=8b5cf6&sideLabels=8b5cf6&dates=9490b4&disable_animations=true
+
+      - name: Validate the generated image
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from xml.etree import ElementTree as ET
+          import re
+          path=Path('assets/github-streak.svg')
+          data=path.read_bytes()
+          assert 1000 < len(data) < 500000, 'Unexpected card size'
+          root=ET.fromstring(data)
+          assert root.tag=='{http://www.w3.org/2000/svg}svg', 'Expected an SVG image'
+          assert b'Current Streak' in data and b'Longest Streak' in data, 'Expected streak statistics'
+          assert not re.search(rb'gh[pousr]_[A-Za-z0-9]{36,}|github_pat_[A-Za-z0-9_]{40,}',data), 'Unexpected token in image'
+          assert not any(node.tag.rsplit('}',1)[-1] in {'script','foreignObject'} for node in root.iter()), 'Unexpected active SVG content'
+          print('Streak SVG validated.')
+          PY
+
+      - name: Publish only the validated image
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- assets/github-streak.svg
+          if git diff --cached --quiet; then
+            echo 'The cached card is already up to date.'
+            exit 0
+          fi
+          git commit -m 'docs: refresh cached GitHub streak'
+          git pull --rebase origin main
+          git push origin HEAD:main
