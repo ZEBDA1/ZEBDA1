@@ -93,7 +93,7 @@ Mes projets phares actuels sont **ImmoAlert** (site immobilier auto-hébergé av
 
 <img src="https://github-readme-stats.vercel.app/api?username=ZEBDA1&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0a0908&title_color=a78bfa&icon_color=8b5cf6&text_color=c4c2dc" alt="GitHub stats" width="410" />
 &nbsp;
-<img src="https://streak-stats.demolab.com/?user=ZEBDA1&hide_border=true&background=0a0908&ring=8b5cf6&fire=a78bfa&currStreakNum=ffffff&sideNums=ffffff&currStreakLabel=8b5cf6&sideLabels=8b5cf6&dates=9490b4" alt="GitHub streak" width="410" />
+<img src="assets/github-streak.svg" alt="GitHub streak" width="410" />
 
 <br /><br />
 
