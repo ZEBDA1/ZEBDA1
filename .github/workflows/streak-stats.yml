@@ -1,4 +1,4 @@
-name: Update cached streak card
+name: Update cached streak and stats cards
 
 on:
   schedule:
@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/streak-stats.yml"
+      - ".github/scripts/generate_stats.py"
 
 permissions:
   contents: write
@@ -24,38 +25,54 @@ jobs:
       - name: Check out profile
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
-      - name: Generate the card from GitHub
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate GitHub stats and top languages cards
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+        run: |
+          python3 .github/scripts/generate_stats.py
+
+      - name: Generate streak card from GitHub
         uses: DenverCoder1/github-readme-streak-stats@adbd07609bb771d3510a15ee2f3b31d5fbe5201d # v1
         with:
           path: assets/github-streak.svg
           options: user=${{ github.repository_owner }}&hide_border=true&background=0a0908&ring=8b5cf6&fire=a78bfa&currStreakNum=ffffff&sideNums=ffffff&currStreakLabel=8b5cf6&sideLabels=8b5cf6&dates=9490b4&disable_animations=true
 
-      - name: Validate the generated image
+      - name: Validate generated images
         run: |
           python3 - <<'PY'
           from pathlib import Path
           from xml.etree import ElementTree as ET
           import re
-          path=Path('assets/github-streak.svg')
-          data=path.read_bytes()
-          assert 1000 < len(data) < 500000, 'Unexpected card size'
-          root=ET.fromstring(data)
-          assert root.tag=='{http://www.w3.org/2000/svg}svg', 'Expected an SVG image'
-          assert b'Current Streak' in data and b'Longest Streak' in data, 'Expected streak statistics'
-          assert not re.search(rb'gh[pousr]_[A-Za-z0-9]{36,}|github_pat_[A-Za-z0-9_]{40,}',data), 'Unexpected token in image'
-          assert not any(node.tag.rsplit('}',1)[-1] in {'script','foreignObject'} for node in root.iter()), 'Unexpected active SVG content'
-          print('Streak SVG validated.')
+
+          cards = ['assets/github-streak.svg', 'assets/github-stats.svg', 'assets/top-langs.svg']
+          for card_path in cards:
+              path = Path(card_path)
+              assert path.exists(), f"Missing {card_path}"
+              data = path.read_bytes()
+              assert 500 < len(data) < 500000, f"Unexpected card size for {card_path}"
+              root = ET.fromstring(data)
+              assert root.tag == '{http://www.w3.org/2000/svg}svg', f"Expected SVG in {card_path}"
+              assert not re.search(rb'gh[pousr]_[A-Za-z0-9]{36,}|github_pat_[A-Za-z0-9_]{40,}', data), "Unexpected token in image"
+              assert not any(node.tag.rsplit('}', 1)[-1] in {'script', 'foreignObject'} for node in root.iter()), "Unexpected active SVG content"
+
+          print('All SVG cards validated.')
           PY
 
-      - name: Publish only the validated image
+      - name: Publish validated images
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- assets/github-streak.svg
+          git add -- assets/github-streak.svg assets/github-stats.svg assets/top-langs.svg
           if git diff --cached --quiet; then
-            echo 'The cached card is already up to date.'
+            echo 'The cached cards are already up to date.'
             exit 0
           fi
-          git commit -m 'docs: refresh cached GitHub streak'
+          git commit -m 'docs: refresh cached GitHub streak & stats cards'
           git pull --rebase origin main
           git push origin HEAD:main

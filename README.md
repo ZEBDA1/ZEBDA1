@@ -8,7 +8,7 @@
 
 <a href="https://github.com/ZEBDA1?tab=followers"><img src="https://img.shields.io/github/followers/ZEBDA1?style=for-the-badge&logo=github&label=FOLLOW&color=8b5cf6&labelColor=0a0908" alt="GitHub followers" /></a>
 &nbsp;
-<img src="https://img.shields.io/badge/DISCORD-zebda__-5865F2?style=for-the-badge&logo=discord&logoColor=ffffff&labelColor=0a0908" alt="Discord — zebda_" />
+<img src="assets/badges/discord.svg" alt="Discord — zebda_" />
 &nbsp;
 <img src="https://hits.sh/github.com/ZEBDA1.svg?style=for-the-badge&color=8b5cf6&labelColor=0a0908&label=VIEWS" alt="Profile views" />
 
@@ -58,32 +58,32 @@ Mes projets phares actuels sont **ImmoAlert** (site immobilier auto-hébergé av
 
 **FRONTEND & UI**
 
-![React 19](https://img.shields.io/badge/React_19-0a0908?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript_strict-0a0908?style=for-the-badge&logo=typescript&logoColor=3178C6)
-![Vite](https://img.shields.io/badge/Vite-0a0908?style=for-the-badge&logo=vite&logoColor=BD34FE)
-![Tailwind](https://img.shields.io/badge/Tailwind_CSS-0a0908?style=for-the-badge&logo=tailwindcss&logoColor=38BDF8)
-![HTML5](https://img.shields.io/badge/HTML5-0a0908?style=for-the-badge&logo=html5&logoColor=E34F26)
-![CSS3](https://img.shields.io/badge/CSS3-0a0908?style=for-the-badge&logo=css3&logoColor=1572B6)
+![React 19](assets/badges/react.svg)
+![TypeScript](assets/badges/typescript.svg)
+![Vite](assets/badges/vite.svg)
+![Tailwind](assets/badges/tailwind.svg)
+![HTML5](assets/badges/html5.svg)
+![CSS3](assets/badges/css3.svg)
 
 **ARCHITECTURE & BROWSER APIS**
 
-![WebAssembly](https://img.shields.io/badge/WebAssembly-0a0908?style=for-the-badge&logo=webassembly&logoColor=654FF0)
-![Web Workers](https://img.shields.io/badge/Web_Workers-0a0908?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
-![IndexedDB](https://img.shields.io/badge/IndexedDB-0a0908?style=for-the-badge&logo=databricks&logoColor=FF3621)
-![Manifest V3](https://img.shields.io/badge/Chrome_MV3-0a0908?style=for-the-badge&logo=googlechrome&logoColor=4285F4)
+![WebAssembly](assets/badges/webassembly.svg)
+![Web Workers](assets/badges/webworkers.svg)
+![IndexedDB](assets/badges/indexeddb.svg)
+![Manifest V3](assets/badges/chromemv3.svg)
 
 **BACKEND, OUTILS & TESTS**
 
-![Python](https://img.shields.io/badge/Python-0a0908?style=for-the-badge&logo=python&logoColor=3776AB)
-![Telegram](https://img.shields.io/badge/Telegram_Bots-0a0908?style=for-the-badge&logo=telegram&logoColor=26A5E4)
-![Docker](https://img.shields.io/badge/Docker-0a0908?style=for-the-badge&logo=docker&logoColor=2496ED)
-![Node.js](https://img.shields.io/badge/Node.js-0a0908?style=for-the-badge&logo=nodedotjs&logoColor=5FA04E)
-![Next.js](https://img.shields.io/badge/Next.js-0a0908?style=for-the-badge&logo=nextdotjs&logoColor=ffffff)
-![Cloudflare](https://img.shields.io/badge/Cloudflare_Workers_AI-0a0908?style=for-the-badge&logo=cloudflare&logoColor=F38020)
-![Vitest](https://img.shields.io/badge/Vitest-0a0908?style=for-the-badge&logo=vitest&logoColor=FCC72B)
-![Playwright](https://img.shields.io/badge/Playwright-0a0908?style=for-the-badge&logo=playwright&logoColor=2EAD33)
-![Git](https://img.shields.io/badge/Git-0a0908?style=for-the-badge&logo=git&logoColor=F05032)
-![GitHub](https://img.shields.io/badge/GitHub-0a0908?style=for-the-badge&logo=github&logoColor=ffffff)
+![Python](assets/badges/python.svg)
+![Telegram](assets/badges/telegram.svg)
+![Docker](assets/badges/docker.svg)
+![Node.js](assets/badges/nodejs.svg)
+![Next.js](assets/badges/nextjs.svg)
+![Cloudflare](assets/badges/cloudflare.svg)
+![Vitest](assets/badges/vitest.svg)
+![Playwright](assets/badges/playwright.svg)
+![Git](assets/badges/git.svg)
+![GitHub](assets/badges/github.svg)
 
 ---
 
@@ -91,13 +91,13 @@ Mes projets phares actuels sont **ImmoAlert** (site immobilier auto-hébergé av
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=ZEBDA1&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0a0908&title_color=a78bfa&icon_color=8b5cf6&text_color=c4c2dc" alt="GitHub stats" width="410" />
+<img src="assets/github-stats.svg" alt="GitHub stats" width="410" />
 &nbsp;
 <img src="assets/github-streak.svg" alt="GitHub streak" width="410" />
 
 <br /><br />
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ZEBDA1&layout=compact&hide_border=true&bg_color=0a0908&title_color=a78bfa&text_color=c4c2dc" alt="Top languages" width="410" />
+<img src="assets/top-langs.svg" alt="Top languages" width="410" />
 
 </div>
 
@@ -121,7 +121,7 @@ Mes projets phares actuels sont **ImmoAlert** (site immobilier auto-hébergé av
 
 <p><strong>Des idées ou des projets ambitieux ? Parlons-en !</strong></p>
 
-[![Discord](https://img.shields.io/badge/Discord-zebda__-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com)
+[![Discord](assets/badges/discord.svg)](https://discord.com)
 
 <img src="assets/zebda-footer.svg" alt="Projets, code et versions sur GitHub" width="100%" />
 
