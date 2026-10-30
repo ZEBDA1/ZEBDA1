@@ -18,11 +18,31 @@ def fetch_json(url):
     with urllib.request.urlopen(req, timeout=15) as resp:
         return json.load(resp)
 
+def render_followers_svg(followers_count):
+    val_str = str(followers_count)
+    val_width = max(len(val_str) * 10 + 20, 32)
+    total_width = 90.5 + val_width
+    val_center = 90.5 + (val_width / 2)
+    
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{total_width}" height="28" role="img" aria-label="FOLLOW: {val_str}">
+  <title>FOLLOW: {val_str}</title>
+  <g shape-rendering="crispEdges">
+    <rect width="90.5" height="28" fill="#0a0908"/>
+    <rect x="90.5" width="{val_width}" height="28" fill="#8b5cf6"/>
+  </g>
+  <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="100">
+    <image x="9" y="7" width="14" height="14" href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJ3aGl0ZXNtb2tlIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R2l0SHViPC90aXRsZT48cGF0aCBkPSJNMTIgLjI5N2MtNi42MyAwLTEyIDUuMzczLTEyIDEyIDAgNS4zMDMgMy40MzggOS44IDguMjA1IDExLjM4NS42LjExMy44Mi0uMjU4LjgyLS41NzcgMC0uMjg1LS4wMS0xLjA0LS4wMTUtMi4wNC0zLjMzOC43MjQtNC4wNDItMS42MS00LjA0Mi0xLjYxQzQuNDIyIDE4LjA3IDMuNjMzIDE3LjcgMy42MzMgMTcuN2MtMS4wODctLjc0NC4wODQtLjcyOS4wODQtLjcyOSAxLjIwNS4wODQgMS44MzggMS4yMzYgMS44MzggMS4yMzYgMS4wNyAxLjgzNSAyLjgwOSAxLjMwNSAzLjQ5NS45OTguMTA4LS43NzYuNDE3LTEuMzA1Ljc2LTEuNjA1LTIuNjY1LS4zLTUuNDY2LTEuMzMyLTUuNDY2LTUuOTMgMC0xLjMxLjQ2NS0yLjM4IDEuMjM1LTMuMjItLjEzNS0uMzAzLS41NC0xLjUyMy4xMDUtMy4xNzYgMCAwIDEuMDA1LS4zMjIgMy4zIDEuMjMuOTYtLjI2NyAxLjk4LS4zOTkgMy0uNDA1IDEuMDIuMDA2IDIuMDQuMTM4IDMgLjQwNSAyLjI4LTEuNTUyIDMuMjg1LTEuMjMgMy4yODUtMS4yMy42NDUgMS42NTMuMjQgMi44NzMuMTIgMy4xNzYuNzY1Ljg0IDEuMjMgMS45MSAxLjIzIDMuMjIgMCA0LjYxLTIuODA1IDUuNjI1LTUuNDc1IDUuOTIuNDIuMzYuODEgMS4wOTYuODEgMi4yMiAwIDEuNjA2LS4wMTUgMi44OTYtLjAxNSAzLjI4NiAwIC4zMTUuMjEuNjkuODI1LjU3QzIwLjU2NSAyMi4wOTIgMjQgMTcuNTkyIDI0IDEyLjI5N2MwLTYuNjI3LTUuMzczLTEyLTEyLTEyIi8+PC9zdmc+"/>
+    <text transform="scale(.1)" x="537.5" y="175" textLength="495">FOLLOW</text>
+    <text transform="scale(.1)" x="{val_center * 10}" y="175" textLength="{len(val_str) * 90}" font-weight="bold">{val_str}</text>
+  </g>
+</svg>"""
+
 def get_stats():
     user = fetch_json(f"https://api.github.com/users/{USER}")
     repos = fetch_json(f"https://api.github.com/users/{USER}/repos?per_page=100")
     
     total_stars = sum(r.get('stargazers_count', 0) for r in repos)
+    followers = user.get('followers', 4)
     
     # Commits
     try:
@@ -59,6 +79,7 @@ def get_stats():
         "commits": commits if commits > 0 else 50,
         "prs": prs,
         "issues": issues,
+        "followers": followers,
         "repos": len([r for r in repos if not r.get('fork')]),
         "languages": lang_bytes
     }
@@ -182,15 +203,19 @@ if __name__ == "__main__":
         stats = get_stats()
         stats_svg = render_stats_svg(stats)
         langs_svg = render_top_langs_svg(stats['languages'])
+        followers_svg = render_followers_svg(stats['followers'])
 
-        os.makedirs("assets", exist_ok=True)
+        os.makedirs("assets/badges", exist_ok=True)
         with open("assets/github-stats.svg", "w", encoding="utf-8") as f:
             f.write(stats_svg)
 
         with open("assets/top-langs.svg", "w", encoding="utf-8") as f:
             f.write(langs_svg)
 
-        print("Stats and Top Languages cards generated successfully.")
+        with open("assets/badges/followers.svg", "w", encoding="utf-8") as f:
+            f.write(followers_svg)
+
+        print("Stats, Top Languages, and Followers cards generated successfully.")
     except Exception as e:
         print(f"Error generating cards: {e}", file=sys.stderr)
         sys.exit(1)

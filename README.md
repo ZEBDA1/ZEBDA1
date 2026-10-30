@@ -6,7 +6,7 @@
 
 <br />
 
-<a href="https://github.com/ZEBDA1?tab=followers"><img src="https://img.shields.io/github/followers/ZEBDA1?style=for-the-badge&logo=github&label=FOLLOW&color=8b5cf6&labelColor=0a0908" alt="GitHub followers" /></a>
+<a href="https://github.com/ZEBDA1?tab=followers"><img src="assets/badges/followers.svg" alt="GitHub followers" /></a>
 &nbsp;
 <img src="assets/badges/discord.svg" alt="Discord — zebda_" />
 &nbsp;
